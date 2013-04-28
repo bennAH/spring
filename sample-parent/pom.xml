@@ -1,0 +1,198 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <name>Sample Parent Project</name>
+  <groupId>com.sample.project</groupId>
+  <artifactId>sample-parent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  <!-- Application modules to build as part of the parent -->
+  <modules>
+      <module>sample-model</module>
+  </modules>
+
+	<!-- Application dependency properties -->
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <org.springframework.version>3.2.2.RELEASE</org.springframework.version>
+    <org.springframework.security.version>3.1.3.RELEASE</org.springframework.security.version>
+    <org.testng.version>6.1.1</org.testng.version>
+    <org.apache.logging.log4j.version>2.0-beta4</org.apache.logging.log4j.version>
+    <maven.compiler.source>1.6</maven.compiler.source>
+  	<maven.compiler.target>1.6</maven.compiler.target>
+  	<org.springframework.data.version>1.3.0.RELEASE</org.springframework.data.version>
+  	<org.hibernate.core.version>4.2.0.FINAL</org.hibernate.core.version>
+  </properties>
+  
+  <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+  
+  <!-- Application dependency version and scope specification -->
+  <dependencyManagement>
+    <dependencies>
+        
+        <!-- Spring Dependency Management -->
+        <dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context</artifactId>
+		    <version>${org.springframework.version}</version>
+		    <scope>runtime</scope>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-orm</artifactId>
+		    <version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-web</artifactId>
+		    <version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-webmvc</artifactId>
+		    <version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			 <version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-jdbc</artifactId>
+		    <version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-beans</artifactId>
+		    <version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-aop</artifactId>
+		    <version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-tx</artifactId>
+		    <version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-expression</artifactId>
+		    <version>${org.springframework.version}</version>
+		</dependency>
+		<dependency> 
+		     <groupId>org.springframework</groupId> 
+		     <artifactId>spring-aspects</artifactId> 
+		     <version>${org.springframework.version}</version> 
+		</dependency>
+		<!-- Spring MVC Test Framework -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-test</artifactId>
+		    <version>${org.springframework.version}</version>
+		    <scope>test</scope>
+		</dependency>
+		
+		<!-- Spring Security Framework -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-core</artifactId>
+		    <version>${org.springframework.security.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>${org.springframework.security.version}</version>
+		</dependency>
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>${org.springframework.security.version}</version>
+		    <scope>runtime</scope>
+		</dependency>
+		
+		<!-- Spring Data -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${org.springframework.data.version}</version>
+		</dependency>
+               
+        <!-- Hibernate -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${org.hibernate.core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${org.hibernate.core.version}</version>
+        </dependency>
+        
+    </dependencies>
+  </dependencyManagement>
+
+  <!-- Dependencies common to all child projects | modules -->
+  <dependencies>
+      <!-- Testing -->
+    <dependency>
+	  <groupId>org.testng</groupId>
+	  <artifactId>testng</artifactId>
+	  <version>${org.testng.version}</version>
+	  <scope>test</scope>
+	</dependency>
+	<!-- Logging -->
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-api</artifactId>
+	    <version>${org.apache.logging.log4j.version}</version>
+	  </dependency>
+	  <dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-core</artifactId>
+	    <version>${org.apache.logging.log4j.version}</version>
+	  </dependency>
+	  <dependency>
+	    <groupId>org.apache.logging.log4j.adapters</groupId>
+	    <artifactId>log4j-slf4j-impl</artifactId>
+	    <version>${org.apache.logging.log4j.version}</version>
+	  </dependency>
+	  <!-- <dependency>
+	  	<groupId>log4j</groupId>
+		<artifactId>log4j</artifactId>
+		<version>1.2.14</version>
+	  </dependency> -->
+  </dependencies>
+  
+  <organization>
+      <name>Knocturnal Systems</name>
+      <url>http://knoc-sys.org</url>
+  </organization>
+  
+  <developers>
+      <developer>
+          <name>Bennett AHS</name>
+          <email>master.bennett@gmail.com</email>
+          <url>bahs.herokuapp.com</url>
+          <organization>Knoc-Sys</organization>
+      </developer>
+  </developers>
+  
+</project>
