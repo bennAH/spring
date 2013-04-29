@@ -11,8 +11,8 @@
 
     <!-- Application modules to build as part of the parent -->
     <modules>
-        <module>sample-model</module>
-        <module>sample-spring-data</module>
+        <module>../sample-model</module>
+        <module>../sample-spring-data</module>
     </modules>
 
     <!-- Application dependency properties -->

@@ -43,6 +43,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-aspects</artifactId>
+            <version>3.2.2.RELEASE</version>
         </dependency>
 
         <!-- Used for Hibernate4 LocalSessionFactoryBean -->
@@ -55,6 +56,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
+            <version>4.2.0.FINAL</version>
         </dependency>
 
         <!-- AOP dependency -->
