@@ -1,7 +1,6 @@
 package com.sample.project;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -20,7 +19,6 @@ public class PersonDAOTest extends BaseTest{
 	}
 	
 	@Test
-	@Transactional
 	public void testAddPerson () {
 		pDAO.addPerson(new Person("test001", "001test"));
 		Assert.assertEquals(1, pDAO.findAll().size());
