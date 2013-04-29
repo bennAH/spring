@@ -1,0 +1,8 @@
+test-output
+target
+.settings
+src/site
+.classpath
+.project
+.DS_Store
+.springBeans
