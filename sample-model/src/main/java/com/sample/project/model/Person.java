@@ -14,6 +14,8 @@ public class Person {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int pid;
     
+    public Person () {}
+    
     public Person(String firstname, String lastname) {
     	this.firstname = firstname;
     	this.lastname = lastname;
